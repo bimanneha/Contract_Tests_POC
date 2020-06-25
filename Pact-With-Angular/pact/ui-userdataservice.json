@@ -1,0 +1,107 @@
+{
+  "consumer": {
+    "name": "ui"
+  },
+  "provider": {
+    "name": "userDataService"
+  },
+  "interactions": [
+    {
+      "description": "provider accepts a new user data",
+      "providerState": "provider accepts a new user data",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/users",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Neha",
+          "lastName": "Biman"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 10
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "provider accepts a new user data",
+      "providerState": "a request to POST a user data",
+      "request": {
+        "method": "POST",
+        "path": "/user-service/users",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Neha",
+          "lastName": "Biman"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "id": 10
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "user with userId 12 exists",
+      "providerState": "a request to PUT a user",
+      "request": {
+        "method": "PUT",
+        "path": "/user-service/users/12",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "firstName": "Karan",
+          "lastName": "Singh"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "firstName": "Karan",
+          "lastName": "Singh"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
